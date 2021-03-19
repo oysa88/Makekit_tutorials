@@ -1,15 +1,18 @@
 {
-    "name": "test bitbot mottaker",
+    "name": "Talentsenter",
     "description": "",
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "BitBot": "github:4tronix/bitbot#1.4.6"
+        "BitBot": "github:4tronix/bitbot#1.4.6",
+        "microphone": "*"
     },
     "files": [
         "main.blocks",
         "main.ts",
-        "README.md"
+        "README.md",
+        "airbit_tutorial.md",
+        "hoverbit_tutorial.md"
     ],
     "testFiles": [
         "test.ts"
@@ -17,5 +20,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
