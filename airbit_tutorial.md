@@ -13,7 +13,6 @@ Bruk ``||input: knapp A||`` og ``||input: knapp B||`` til å endre ``||variabel:
 - For ``||input: når knapp B trykkes||``: Hvis ``||variabel: Throttle||`` er mindre enn 40, endre ``||variabel: Throttle||`` med +5, ellers endre ``||variabel: Throttle||`` med +1.
 
 ```blocks
-let Throttle = 0
 input.onButtonPressed(Button.A, function () {
     if (Throttle < 40) {
         Throttle += -5
