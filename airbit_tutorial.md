@@ -92,4 +92,4 @@ input.onGesture(Gesture.Shake, function () {
 ### Visualisering på skjermen
 
 
-![Agent building a tower](/static/tutorials/agent-tower.png)
+![Visualisere Skjerm](/statics/Visualisere_skjerm.jpg)
