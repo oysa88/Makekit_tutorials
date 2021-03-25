@@ -92,4 +92,4 @@ input.onGesture(Gesture.Shake, function () {
 ### Visualisering på skjermen
 
 
-![Visualisere Skjerm](/statics/Visualisere_skjerm.jpg)
+![Visualisere Skjerm](https://i.ibb.co/kKXcB1z/Fjernkotroll.jpg)
