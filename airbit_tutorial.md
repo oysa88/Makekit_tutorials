@@ -55,18 +55,18 @@ basic.forever(function () {
 
 Lag variabelen ``||variabel: Arm||``.
 
-Vi skal lage en funksjon som får variabelen ``||variabel: Arm||`` til å veksle mellom 0 og 1 hver gang ``||input: knapp A+B||`` trykkes inn.
+Vi skal lage en funksjon som gjør at vi kan stru av og på dronen fra fjernkontrollen. Her skal vi få variabelen ``||variabel: Arm||`` til å veksle mellom 0 og 1 hver gang ``||input: knapp A+B||`` trykkes inn.
 
-Hvis ``||variabel: Arm||``, skal ``||variabel: Arm||`` settes til 0 når ``||input: knapp A+B||`` trykkes inn. Ellers skal den settes til 1.
+Hvis ``||variabel: Arm||``, er 0 skal ``||variabel: Arm||`` settes til 1 når ``||input: knapp A+B||`` trykkes inn. Ellers skal den settes til 0.
 
 Hver gang vi endrer statusen til ``||variabel: Arm||``, skal vi sette ``||variabel: Throttle||`` til 0.
 
 ```blocks
 input.onButtonPressed(Button.AB, function () {
-    if (Arm) {
-        Arm = 0
-    } else {
+    if (Arm == 0) {
         Arm = 1
+    } else {
+        Arm = 0
     }
     Throttle = 0
 })
