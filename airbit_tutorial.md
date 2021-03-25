@@ -91,5 +91,9 @@ input.onGesture(Gesture.Shake, function () {
 
 ### Visualisering på skjermen
 
+Micro:bitens LED-display kan brukes til å vise styringsinformasjonen vi skal sende videre til dronen (PARTY). På den måten er det lett å se om vi har kodet riktig, og vi får en indikasjon på hvilke verdier vi sender videre. 
+
+Vi fokuserer i første omgang på å visualisere ``||variabel: Arm||``, ``||variabel: Throttle||`` og ``||input: Roll/Pitch||``: 
 
 ![Visualisere Skjerm](https://i.ibb.co/kKXcB1z/Fjernkotroll.jpg)
+
