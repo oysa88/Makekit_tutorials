@@ -97,3 +97,7 @@ Vi fokuserer i første omgang på å visualisere ``||variabel: Arm||``, ``||vari
 
 ![Visualisere Skjerm](https://i.ibb.co/kKXcB1z/Fjernkotroll.jpg)
 
+``||variabel: Arm||``-prikken (0,0) lyser når dronen er armert, og slukker når den er disarmert, som en varsels-lampe.
+
+Throttle-prikken skal ﬂytte seg oppover mens throttle øker. Dette indikerer hvor mye løft dronen vil ha.
+Roll/Pitch-prikken beveger seg til siden (Roll) og forover/bakover(Pitch) for å vise vinklene.
