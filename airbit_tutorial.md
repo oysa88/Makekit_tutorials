@@ -204,7 +204,7 @@ basic.forever (function () {
 
 ### Visualisere Throttle
 
-Vi skal visualisere ``||variabel: Throttle||`` oppover langs venstre side på skjermen til micro:biten.(Det blå området på bildet.)
+Vi skal visualisere ``||variabel: Throttle||`` oppover langs venstre side på skjermen til micro:biten. (Det blå området på bildet.)
 
 ``||variabel: Throttle||`` har en verdi mellom 0 og 100. Problemet med å vise det på skjermen er at koordinatene går fra 4 til 0. vi må derfor finne en måte å regne om dette på. 
 
