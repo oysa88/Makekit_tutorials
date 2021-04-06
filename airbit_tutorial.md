@@ -35,9 +35,9 @@ input.onButtonPressed(Button.B, function () {
 
 Vi ønsker ikke at ``||variabel: throttle||`` skal være mindre enn 0 eller større enn 100. Derfor må vi legge til en ``||logic: hvis-betingelse||`` som hindrer dette i å skje.
 
-- Under ``||input: knapp A||``: Hvis ``||variabel: throttle||`` er over (>) 100, skal ``||variabel: throttle||`` settes lik 100.
+- Under ``||input: knapp A||``: Hvis ``||variabel: throttle||`` er under (<) 0, skal ``||variabel: throttle||`` settes lik 0.
 
-- Under ``||input: knapp B||``: Hvis ``||variabel: throttle||`` er over (<) 0, skal ``||variabel: throttle||`` settes lik 0.
+- Under ``||input: knapp B||``: Hvis ``||variabel: throttle||`` er over (>) 100, skal ``||variabel: throttle||`` settes lik 100.
 
 ```blocks
 input.onButtonPressed(Button.A, function () {
