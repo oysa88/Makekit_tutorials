@@ -70,7 +70,7 @@ input.onButtonPressed(Button.B, function () {
 
 Med fjernkontrollen skal vi få dronen til å bevege seg fremover, bakover, mot høyre eller mot venstre. For å gjøre dette skal vi bruke ``||input: helningsvinkel||`` til micro:bit.
 
-![Drone-Pitch-Roll.jpg](https://i.postimg.cc/vBY7ZDJn/Drone-Pitch-Roll.jpg)
+![Drone-Pitch-Roll.jpg](https://i.postimg.cc/rmcttttF/Drone-Pitch-Roll.jpg)
 
 
 ## Steg 2.2
@@ -196,8 +196,7 @@ basic.forever(function () {
 
 Micro:bitens LED-display kan brukes til å vise styringsinformasjonen vi skal sende videre til dronen (PARTY). På den måten er det lett å se om vi har kodet riktig, og vi får en indikasjon på hvilke verdier vi sender videre.
 
-![Visualisere-Skjerm-500px.jpg](https://i.postimg.cc/Y2d2nGjG/Visualisere-Skjerm-500px.jpg)
-
+![Visualisere-Skjerm.jpg](https://i.postimg.cc/P5sfxnDd/Visualisere-Skjerm.jpg)
 
 ## Steg 5.2
 
@@ -224,7 +223,7 @@ Vi skal visualisere ``||variabel: Arm||`` ved å tenne lyset øverst i venstre h
 
 Punket skal lyse når er ``||variabel: Arm||`` er på og være slukket når ``||variabel: Arm||`` er av.
 
-![Visualisere-Arm-500px.jpg](https://i.postimg.cc/Wz1NpjY1/Visualisere-Arm-500px.jpg)
+![Visualisere-Arm.png](https://i.postimg.cc/BQvHgD7j/Visualisere-Arm.png)
 
 ## Steg 6.2
 
@@ -253,7 +252,7 @@ basic.forever (function () {
 
 Vi skal visualisere ``||variabel: Throttle||`` oppover langs venstre side på skjermen til micro:biten. (Det blå området på bildet.)
 
-![Visualisere-Throttle-500px.jpg](https://i.postimg.cc/kXZJC0Q7/Visualisere-Throttle-500px.jpg)
+![Visualisere-Throttle.jpg](https://i.postimg.cc/mrVT8c5r/Visualisere-Throttle.jpg)
 
 
 ## Steg 7.2
@@ -289,7 +288,7 @@ basic.forever(function () {
 
 Vi skal vise ``||variabel: Roll||`` og ``||variabel: Pitch||`` i det røde området. Når fjernkontrollen holdes vannrett, skal vi ``||led: tenne (x = 2, y = 2)||``.
 
-![Visualisere-Pitch-Roll-500px.jpg](https://i.postimg.cc/8cX1j3xB/Visualisere-Pitch-Roll-500px.jpg)
+![Visualisere-Pitch-Roll.jpg](https://i.postimg.cc/nrrrvKVZ/Visualisere-Pitch-Roll.jpg)
 
 
 ## Steg 9.2
@@ -326,7 +325,7 @@ basic.forever(function () {
 
 Vi skal visualisere ``||variabel: Yaw||`` på den nederste linjen på skjermen til micro:bit i det gule feltet.
 
-![Visualisere-Yaw-500px.jpg](https://i.postimg.cc/RZHMZgdK/Visualisere-Yaw-500px.jpg)
+![Visualisere-Yaw.jpg](https://i.postimg.cc/JnnMg1f5/Visualisere-Yaw.jpg)
 
 
 ## Steg 10.2
