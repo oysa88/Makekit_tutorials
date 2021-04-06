@@ -4,13 +4,13 @@
 
 ### Throttle
 
-Lag variabelen ``||variabels: throttle||``.
+Lag variabelen ``||variabel: throttle||``.
 
-Bruk ``||input: knapp A||`` og ``||input: knapp B||`` til å endre ``||variabels: throttle||``.
+Bruk ``||input: knapp A||`` og ``||input: knapp B||`` til å endre ``||variabel: throttle||``.
 
-- For ``||input: når knapp A trykkes||``: Hvis ``||variabels: throttle||`` er mindre enn 40, minske ``||variabels: throttle||`` med -5, ellers minske ``||variabels: throttle||`` med -1.
+- For ``||input: når knapp A trykkes||``: Hvis ``||variabel: throttle||`` er mindre enn 40, minske ``||variabel: throttle||`` med -5, ellers minske ``||variabel: throttle||`` med -1.
 
-- For ``||input: når knapp B trykkes||``: Hvis ``||variabels: throttle||`` er mindre enn 40, øke ``||variabels: throttle||`` med +5, ellers øke ``||variabels: throttle||`` med +1.
+- For ``||input: når knapp B trykkes||``: Hvis ``||variabel: throttle||`` er mindre enn 40, øke ``||variabel: throttle||`` med +5, ellers øke ``||variabel: throttle||`` med +1.
 
 ```blocks
 input.onButtonPressed(Button.A, function () {
