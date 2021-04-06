@@ -4,13 +4,13 @@
 
 ### Throttle
 
-Lag variabelen ``||variabel: Throttle||``.
+Lag variabelen ``||variabels: Throttle||``.
 
-Bruk ``||input: knapp A||`` og ``||input: knapp B||`` til å endre ``||variabel: Throttle||``.
+Bruk ``||input: knapp A||`` og ``||input: knapp B||`` til å endre ``||variabels: Throttle||``.
 
-- For ``||input: når knapp A trykkes||``: Hvis ``||variabel: Throttle||`` er mindre enn 40, minske ``||variabel: Throttle||`` med -5, ellers minske ``||variabel: Throttle||`` med -1.
+- For ``||input: når knapp A trykkes||``: Hvis ``||variabels: Throttle||`` er mindre enn 40, minske ``||variabels: Throttle||`` med -5, ellers minske ``||variabels: Throttle||`` med -1.
 
-- For ``||input: når knapp B trykkes||``: Hvis ``||variabel: Throttle||`` er mindre enn 40, øke ``||variabel: Throttle||`` med +5, ellers øke ``||variabel: Throttle||`` med +1.
+- For ``||input: når knapp B trykkes||``: Hvis ``||variabels: Throttle||`` er mindre enn 40, øke ``||variabels: Throttle||`` med +5, ellers øke ``||variabels: Throttle||`` med +1.
 
 ```blocks
 input.onButtonPressed(Button.A, function () {
@@ -22,9 +22,9 @@ input.onButtonPressed(Button.A, function () {
 })
 input.onButtonPressed(Button.B, function () {
     if (Throttle < 40) {
-        Throttle += 5
+        Throttle += -5
     } else {
-        Throttle += 1
+        Throttle += -1
     }
 })
 ```
@@ -40,6 +40,7 @@ Vi ønsker ikke at ``||variabel: Throttle||`` skal være mindre enn 0 eller stø
 - Under ``||input: knapp B||``: Hvis ``||variabel: Throttle||`` er over (<) 0, skal ``||variabel: Throttle||`` settes lik 0.
 
 ```blocks
+let Throttle == 0
 input.onButtonPressed(Button.A, function () {
     if (Throttle < 40) {
         Throttle += -5
@@ -128,6 +129,8 @@ input.onGesture(Gesture.ScreenDown, function () {
 })
 ```
 
+
+
 ## Steg 4
 
 ### Snu dronen rundt sin egen akse (Yaw)
@@ -162,27 +165,45 @@ basic.forever(function () {
 })
 ```
 
-## Steg 5
+## Steg 5.1 @unplugged
 
 ### Visualisering på skjermen
 
 Micro:bitens LED-display kan brukes til å vise styringsinformasjonen vi skal sende videre til dronen (PARTY). På den måten er det lett å se om vi har kodet riktig, og vi får en indikasjon på hvilke verdier vi sender videre.
 
+![Visualisere-Skjerm-500px.jpg](https://i.postimg.cc/Y2d2nGjG/Visualisere-Skjerm-500px.jpg)
+
+
+## Steg 5.2
+
+### Klargjør visualisering på skjermen
+
+Micro:bitens LED-display kan brukes til å vise styringsinformasjonen vi skal sende videre til dronen (PARTY). På den måten er det lett å se om vi har kodet riktig, og vi får en indikasjon på hvilke verdier vi sender videre.
+
 Legg til en ``||basic: tøm skjerm||`` inn i  ``||basic: gjenta for alltid||``. Den skal gi oss en ren skjerm når vi skal vise ``||variabel: Arm||``, ``||variabel: Throttle||``, ``||variabel: Pitch/Roll||`` og ``||variabel: Yaw||``.
 
-![Visualisere Skjerm](url)
-
 ```blocks
-basic.forever(function () {
+basic.forever (function () {
     basic.clearScreen()
 })
 ```
 
-## Steg 6 
+![Visualisere-Skjerm-500px.jpg](https://i.postimg.cc/Y2d2nGjG/Visualisere-Skjerm-500px.jpg)
+
+
+## Steg 6.1 @unplugged
 
 ### Visualisere Arm
 
-Vi skal visualisere ``||variabel: Arm||`` ved å tenne lyset øverst i venstre hjørne (x=0, y=0) på skjermen til micro:biten.
+Vi skal visualisere ``||variabel: Arm||`` ved å tenne lyset øverst i venstre hjørne (x=0, y=0) på skjermen til micro:biten. 
+
+Punket skal lyse når er ``||variabel: Arm||`` er på og være slukket når ``||variabel: Arm||`` er av.
+
+![Visualisere-Arm-500px.jpg](https://i.postimg.cc/Wz1NpjY1/Visualisere-Arm-500px.jpg)
+
+## Steg 6.2
+
+### Visualisere Arm 
 
 Inne i  ``||basic: gjenta for alltid||``:
 
@@ -190,7 +211,6 @@ Inne i  ``||basic: gjenta for alltid||``:
 
 - Hvis den er det, skal vi ``||led: tenne||`` (x=0, y=0).
 
-![Visualisere Arm](url)
 
 ```blocks
 basic.forever (function () {
@@ -199,12 +219,21 @@ basic.forever (function () {
     }
 })
 ```
+![Visualisere-Arm-500px.jpg](https://i.postimg.cc/Wz1NpjY1/Visualisere-Arm-500px.jpg)
 
-## Steg 7
+
+## Steg 7.1 @unplugged
 
 ### Visualisere Throttle
 
 Vi skal visualisere ``||variabel: Throttle||`` oppover langs venstre side på skjermen til micro:biten. (Det blå området på bildet.)
+
+![Visualisere-Throttle-500px.jpg](https://i.postimg.cc/kXZJC0Q7/Visualisere-Throttle-500px.jpg)
+
+
+## Steg 7.2
+
+### Visualisere Throttle
 
 ``||variabel: Throttle||`` har en verdi mellom 0 og 100. Problemet med å vise det på skjermen er at koordinatene går fra 4 til 0. vi må derfor finne en måte å regne om dette på. 
 
@@ -221,23 +250,30 @@ Regnestykket vi må lage skal deles i to operasjoner. Svaret skal settes inn en 
 | Koordinat på skjerm ||||||||    4    ||||||||    2    ||||||||    0    |
 
 
-
-
-![Visualisere Throttle](url)
-
 ```blocks
 basic.forever(function () {
     led.plot(0, 4 - Throttle / 25)
 })
 ```
+![Visualisere-Throttle-500px.jpg](https://i.postimg.cc/kXZJC0Q7/Visualisere-Throttle-500px.jpg)
 
-## Steg 9
+
+## Steg 9.1 @unplugged
+
+### Visualisere Roll/Pitch
+
+Vi skal vise ``||variabel: Roll||`` og ``||variabel: Pitch||`` i det røde området. Når fjernkontrollen holdes vannrett, skal vi ``||led: tenne (x=2, y=2)||``.
+
+![Visualisere-Pitch-Roll-500px.jpg](https://i.postimg.cc/8cX1j3xB/Visualisere-Pitch-Roll-500px.jpg)
+
+
+## Steg 9.2
 
 ### Visualisere Roll/Pitch
 
 Vinkelen til ``||variabel: Roll||`` og ``||variabel: Pitch||`` ligger mellom -45 grader og 45 grader. For å vise dette på skjermen vår, må vi regne om vinklene til koordinatene på skjermen som er mellom 0 og 4. 
 
-Regnestykket vi må lage skal deles i to operasjoner. Svaret skal settes inn en ``||led: tenn (x, y)||``.
+Regnestykket vi må lage kan deles i to operasjoner. Svaret skal settes inn en ``||led: tenn (x, y)||``.
 
 - Lag et regnestykke: Hvis du setter inn helningsvinkelen i tabellen under, skal svaret bli verdien i mellomregningen under. (Hvis ``||input: helningsvinkel||`` er -45 grader, skal svaret bli 0, hvis ``||input: helningsvinkel||`` er 0 grader, skal svaret bli 45, og hvis ``||input: helningsvinkel||`` er 45 grader, skal svaret bli 90.)
  
@@ -256,12 +292,21 @@ basic.forever(function () {
     led.plot((45 + Roll) / 22.5, (45 + Pitch) / 22.5)
 })
 ```
+![Visualisere-Pitch-Roll-500px.jpg](https://i.postimg.cc/8cX1j3xB/Visualisere-Pitch-Roll-500px.jpg)
 
-## Steg 10
+
+## Steg 10.1 @unplugged
 
 ### Visualisere Yaw
 
-Vi skal visualisere ``||variabel: Yaw||`` på den nesderste linja på skjermen til micro:bit. 
+Vi skal visualisere ``||variabel: Yaw||`` på den nesderste linja på skjermen til micro:bit i det gule feltet.
+
+![Visualisere-Yaw-500px.jpg](https://i.postimg.cc/RZHMZgdK/Visualisere-Yaw-500px.jpg)
+
+
+## Steg 10.2
+
+### Visualisere Yaw
 
 Settes inn i ``||logic: hvis-betingelsen||`` som vi lagde for ``||variabel: Yaw||``.
 
@@ -285,6 +330,8 @@ basic.forever(function () {
     }
 })
 ```
+![Visualisere-Yaw-500px.jpg](https://i.postimg.cc/RZHMZgdK/Visualisere-Yaw-500px.jpg)
+
 
 ## Steg 11
 
@@ -304,7 +351,7 @@ Under ``||logic: ved start||``:
 
 ```blocks
 let Radiogruppe = 10
-set.radioGroup(Radiogruppe)
+radio.setGroup(Radiogruppe)
 basic.showNumber(Radiogruppe)
 ```
 
@@ -333,7 +380,7 @@ basic.forever(function () {
     radio.sendValue("Y", Yaw)
 })
 ```
-## Steg 13 @unplugged
+## Steg 13.1 @unplugged
 
 ### Hele koden til fjernkontrollen
 
@@ -341,74 +388,15 @@ Du er nå ferdig med å programmere en micro:bit fjernkontroll for å styre dron
 
 Slik skal hele koden din se ut når du er ferdig!
 
-```blocks
-input.onButtonPressed(Button.A, function () {
-    if (Throttle < 40) {
-        Throttle += -5
-    } else {
-        Throttle += -1
-    }
-    if (Throttle < 0) {
-        Throttle = 0
-    }
-})
-input.onGesture(Gesture.Shake, function () {
-    Arm = 0
-    Throttle = 0
-})
-input.onButtonPressed(Button.AB, function () {
-    if (Arm == 0) {
-        Arm = 1
-    } else {
-        Arm = 0
-    }
-    Throttle = 0
-})
-input.onButtonPressed(Button.B, function () {
-    if (Throttle < 40) {
-        Throttle += 5
-    } else {
-        Throttle += 1
-    }
-    if (Throttle > 100) {
-        Throttle = 100
-    }
-})
-let Yaw = 0
-let Pitch = 0
-let Roll = 0
-let Arm = 0
-let Throttle = 0
-let Radiogruppe = 10
-pins.analogWritePin(AnalogPin.P1, 1023)
-radio.setGroup(Radiogruppe)
-basic.showNumber(Radiogruppe)
-basic.forever(function () {
-    Roll = input.rotation(Rotation.Roll)
-    Pitch = input.rotation(Rotation.Pitch)
-    basic.clearScreen()
-    if (Arm == 1) {
-        led.plot(0, 0)
-    }
-    led.plot(0, Math.map(Throttle, 0, 100, 4, 0))
-    led.plot(0, 4 - Throttle / 25)
-    led.plot(Math.map(Roll, -45, 45, 0, 4), Math.map(Pitch, -45, 45, 0, 4))
-    led.plot((45 + Roll) / 22.5, (45 + Pitch) / 22.5)
-    if (pins.analogReadPin(AnalogPin.P0) > 500) {
-        Yaw = -30
-        led.plot(1, 4)
-    } else if (pins.analogReadPin(AnalogPin.P2) > 500) {
-        Yaw = 30
-        led.plot(3, 4)
-    } else {
-        Yaw = 0
-        led.plot(2, 4)
-    }
-    radio.sendValue("P", Pitch)
-    radio.sendValue("A", Arm)
-    radio.sendValue("R", Roll)
-    radio.sendValue("T", Throttle)
-    radio.sendValue("Y", Yaw)
-})
+![Full-kode-Airbit.jpg](https://i.postimg.cc/7hwwJrxj/Full-kode-Airbit.jpg)
 
-```
+
+## Steg 13.2
+
+### Hele koden til fjernkontrollen
+
+Du er nå ferdig med å programmere en micro:bit fjernkontroll for å styre dronen din!
+
+Slik skal hele koden din se ut når du er ferdig!
+
+![Full-kode-Airbit.jpg](https://i.postimg.cc/7hwwJrxj/Full-kode-Airbit.jpg)
