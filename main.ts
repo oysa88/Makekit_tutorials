@@ -1,63 +1,63 @@
 input.onButtonPressed(Button.A, function () {
-    if (Throttle < 40) {
-        Throttle += -5
+    if (throttle < 40) {
+        throttle += -5
     } else {
-        Throttle += -1
+        throttle += -1
     }
 })
 input.onGesture(Gesture.ScreenDown, function () {
-    Throttle = 0
-    Arm = 0
+    throttle = 0
+    arm = 0
 })
 input.onGesture(Gesture.Shake, function () {
-    Throttle = 0
-    Arm = 0
+    throttle = 0
+    arm = 0
 })
 input.onButtonPressed(Button.AB, function () {
-    if (Arm) {
-        Arm = 0
+    if (arm) {
+        arm = 0
     } else {
-        Arm = 1
+        arm = 1
     }
 })
 input.onButtonPressed(Button.B, function () {
-    if (Throttle < 40) {
-        Throttle += -5
+    if (throttle < 40) {
+        throttle += -5
     } else {
-        Throttle += -1
+        throttle += -1
     }
 })
-let Yaw = 0
-let Pitch = 0
-let Roll = 0
-let Arm = 0
-let Throttle = 0
-let radioGroup = 1
-radio.setGroup(radioGroup)
-basic.showNumber(radioGroup)
+let yaw = 0
+let pitch = 0
+let roll = 0
+let arm = 0
+let throttle = 0
+let radiogruppe = 1
+radio.setGroup(radiogruppe)
+basic.showNumber(radiogruppe)
 pins.analogWritePin(AnalogPin.P1, 1023)
 basic.forever(function () {
-    Roll = input.rotation(Rotation.Roll)
-    Pitch = input.rotation(Rotation.Pitch)
+    roll = input.rotation(Rotation.Roll)
+    pitch = input.rotation(Rotation.Pitch)
     basic.clearScreen()
-    if (Arm == 1) {
+    if (arm == 1) {
         led.plot(0, 0)
     }
     if (pins.analogReadPin(AnalogPin.P0) > 500) {
-        Yaw = -30
+        yaw = -30
         led.plot(1, 4)
     } else if (pins.analogReadPin(AnalogPin.P2) > 500) {
-        Yaw = 30
+        yaw = 30
         led.plot(3, 4)
     } else {
-        Yaw = 0
+        yaw = 0
         led.plot(2, 4)
     }
-    led.plot(0, 4 - Throttle / 25)
-    led.plot((45 - Roll) / 22.5, (45 + Pitch) / 22.5)
-    radio.sendValue("P", Pitch)
-    radio.sendValue("A", Arm)
-    radio.sendValue("R", Roll)
-    radio.sendValue("T", Throttle)
-    radio.sendValue("Y", Yaw)
+    led.plot(0, 4 - throttle / 25)
+    led.plot((45 - roll) / 22.5, (45 + pitch) / 22.5)
+    radio.sendValue("P", pitch)
+    radio.sendValue("A", arm)
+    radio.sendValue("R", roll)
+    radio.sendValue("T", throttle)
+    radio.sendValue("Y", yaw)
 })
