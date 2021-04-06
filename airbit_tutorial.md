@@ -64,11 +64,18 @@ input.onButtonPressed(Button.B, function () {
 ```
 
 
-## Steg 2
+## Steg 2.1 @unplugged
 
 ### Roll og Pitch
 
 Med fjernkontrollen skal vi få dronen til å bevege seg fremover, bakover, mot høyre eller mot venstre. For å gjøre dette skal vi bruke ``||input: helningsvinkel||`` til micro:bit.
+
+![Drone-Pitch-Roll.jpg](https://i.postimg.cc/vBY7ZDJn/Drone-Pitch-Roll.jpg)
+
+
+## Steg 2.2
+
+### Roll og Pitch
 
 Lag variablene: ``||variabel: Roll||`` og ``||variabel: Pitch||``.
 
@@ -84,16 +91,27 @@ basic.forever(function () {
     Pitch = input.rotation(Rotation.Pitch)
 })
 ```
+![Drone-Pitch-Roll-500px.jpg](https://i.postimg.cc/BZc6CM1J/Drone-Pitch-Roll-500px.jpg)
 
-## Steg 3.1
+
+## Steg 3.1 @unplugged
 
 ### Arm 
 
-Lag variabelen ``||variabel: Arm||``.
+Vi skal lage en sikkerhetssperre som gjør at vi kan skru dronen av og på med fjernkontrollen vår. 
 
-Vi skal lage en sikkerhetssperre som gjør at vi kan skru dronen av og på med fjernkontrollen vår. Variabelen ``||variabel: Arm||`` skal veksle mellom 0 og 1 hver gang ``||input: knapp A+B||`` trykkes inn.
+| ![Drone-Desarmert-500px.jpg](https://i.postimg.cc/KzNcy4NW/Drone-Desarmert-500px.jpg) | ![Drone-Armert-og-Desarmert-500px.jpg](https://i.postimg.cc/XYGvyjjZ/Drone-Armert-og-Desarmert-500px.jpg) |
+| :-----: | :-----: |
+| Drone Desarmert |    Drone Armert    |
 
-Hvis ``||variabel: Arm||``= 0, skal ``||variabel: Arm||`` settes til 1 når ``||input: knapp A+B||`` trykkes inn. Ellers skal den settes til 0.
+
+## Steg 3.2
+
+### Arm 
+
+Lag variabelen ``||variabel: Arm||``. Variabelen ``||variabel: Arm||`` skal veksle mellom 0 og 1 hver gang ``||input: knapp A+B||`` trykkes inn.
+
+Hvis ``||variabel: Arm||`` = 0, skal ``||variabel: Arm||`` settes til 1 når ``||input: knapp A+B||`` trykkes inn. Ellers skal den settes til 0.
 
 Hver gang vi endrer statusen til ``||variabel: Arm||``, skal vi sette ``||variabel: Throttle||`` til 0.
 
@@ -108,7 +126,7 @@ input.onButtonPressed(Button.AB, function () {
 })
 ```
 
-## Steg 3.2
+## Steg 3.3
 
 ### Arm sikkerhet
 
@@ -129,29 +147,34 @@ input.onGesture(Gesture.ScreenDown, function () {
 })
 ```
 
-
-
-## Steg 4
+## Steg 4.1 @unplugged
 
 ### Snu dronen rundt sin egen akse (Yaw)
 
 Vi ønsker å få dronen til rotere sidelengs, slik at fronten kan peke i en annen retning.
 
-Dette gjør vi å lage en variabel kalt ``||variabel: Yaw||``.
+[![Drone-Yaw.jpg](https://i.postimg.cc/L4rTz4fc/Drone-Yaw.jpg)](https://postimg.cc/Z0xpmSwH)
 
-Vi har ikke flere knapper på micro:biten, så vi må finne en måte å løse dette på.
 
-Heldigvis har vi noen gullkantede pins nederst på micro:biten. Ved å sette strøm på ``||pins: P1||``, kan vi ved å legge en finger mellom ``||pins: P0||`` og ``||pins: P1||`` sende strøm til ``||pins: P0||`` (Hint: Huden vår leder strøm). Samme kan vi gjøre med ``||pins: P2||`` også.
+## Steg 4.2
 
-- Bruk analog write for å sende strøm ut på pinne ``||pins: P1||`` (verdi = 1023). Plasser den inn under ``||basic: ved start||``.
+### Snu dronen rundt sin egen akse (Yaw)
+
+Vi ønsker å få dronen til rotere sidelengs, slik at fronten kan peke i en annen retning. Dette gjør vi å lage en variabel kalt ``||variabel: Yaw||``.
+
+Vi har ikke flere knapper på micro:biten, så vi må finne en måte å løse dette på. Heldigvis har vi noen gullkantede pins nederst på micro:biten. 
+
+Ved å sette strøm på ``||pins: P1||``, kan vi ved å legge en finger mellom ``||pins: P0||`` og ``||pins: P1||``, sende strøm til ``||pins: P0||`` (Hint: Huden vår leder strøm). Samme kan vi gjøre med ``||pins: P2||`` også.
+
+- Bruk ``||pins: skriv analog verdi||`` for å sende strøm ut på pinne ``||pins: P1||`` (verdi = 1023). Plasser den inn under ``||basic: ved start||``.
 
 Oppgave: Lag en ``||logic: hvis-betingelse||`` som:
 
-- Setter ``||variabel: Yaw||`` til -30 dersom man trykker til venstre (lese av ``||pins: analog P0||`` til over 500)
+- Setter ``||variabel: Yaw||`` til -30 hvis man trykker til venstre (lese av ``||pins: analog P0||`` til over 500)
 
-- Setter ``||variabel: Yaw||`` til 30 om vi trykker til høyre (lese av ``||pins: analog P2||`` til over 500)
+- Setter ``||variabel: Yaw||`` til 30 hvis man trykker til høyre (lese av ``||pins: analog P2||`` til over 500)
 
-- Setter ``||variabel: Yaw||`` til 0 om ingen strøm registreres (ikke noe trykk)
+- Ellers settes ``||variabel: Yaw||`` til 0 hvis ingen strøm registreres (ikke noe trykk)
 
 ```blocks
 basic.forever(function () {
@@ -164,6 +187,8 @@ basic.forever(function () {
     }
 })
 ```
+[![Drone-Yaw-500px.jpg](https://i.postimg.cc/tTGq3xq1/Drone-Yaw-500px.jpg)](https://postimg.cc/GBznr9sr)
+
 
 ## Steg 5.1 @unplugged
 
@@ -195,7 +220,7 @@ basic.forever (function () {
 
 ### Visualisere Arm
 
-Vi skal visualisere ``||variabel: Arm||`` ved å tenne lyset øverst i venstre hjørne (x=0, y=0) på skjermen til micro:biten. 
+Vi skal visualisere ``||variabel: Arm||`` ved å tenne lyset øverst i venstre hjørne (x = 0, y = 0) på skjermen til micro:biten. 
 
 Punket skal lyse når er ``||variabel: Arm||`` er på og være slukket når ``||variabel: Arm||`` er av.
 
@@ -209,7 +234,7 @@ Inne i  ``||basic: gjenta for alltid||``:
 
 - Lag en ``||logic: hvis-betingelse||`` som sjekker om ``||variabel: Arm||`` = 1. 
 
-- Hvis den er det, skal vi ``||led: tenne||`` (x=0, y=0).
+- Hvis den er det, skal vi ``||led: tenne||`` (x = 0, y = 0).
 
 
 ```blocks
@@ -262,7 +287,7 @@ basic.forever(function () {
 
 ### Visualisere Roll/Pitch
 
-Vi skal vise ``||variabel: Roll||`` og ``||variabel: Pitch||`` i det røde området. Når fjernkontrollen holdes vannrett, skal vi ``||led: tenne (x=2, y=2)||``.
+Vi skal vise ``||variabel: Roll||`` og ``||variabel: Pitch||`` i det røde området. Når fjernkontrollen holdes vannrett, skal vi ``||led: tenne (x = 2, y = 2)||``.
 
 ![Visualisere-Pitch-Roll-500px.jpg](https://i.postimg.cc/8cX1j3xB/Visualisere-Pitch-Roll-500px.jpg)
 
@@ -299,7 +324,7 @@ basic.forever(function () {
 
 ### Visualisere Yaw
 
-Vi skal visualisere ``||variabel: Yaw||`` på den nesderste linja på skjermen til micro:bit i det gule feltet.
+Vi skal visualisere ``||variabel: Yaw||`` på den nederste linjen på skjermen til micro:bit i det gule feltet.
 
 ![Visualisere-Yaw-500px.jpg](https://i.postimg.cc/RZHMZgdK/Visualisere-Yaw-500px.jpg)
 
@@ -343,7 +368,7 @@ Det første vi skal gjøre er å lage en variabel: ``||variabel: Radiogruppe||``
 
 Under ``||logic: ved start||``:
 
-- Sett ``||variabel: Radiogruppe||`` til gruppenummeret du har fått utdelt. (F.eks: 1)
+- Sett ``||variabel: Radiogruppe||`` til gruppenummeret du har fått utdelt. (F.eks: 10). 
 
 - Sett ``||radio: radio sett gruppe||`` til å være variabelen ``||variabel: Radiogruppe||``.
 
