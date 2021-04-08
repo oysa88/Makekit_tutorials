@@ -4,6 +4,9 @@ input.onButtonPressed(Button.A, function () {
     } else {
         Throttle += -1
     }
+    if (Throttle < 0) {
+        Throttle = 0
+    }
 })
 input.onGesture(Gesture.ScreenDown, function () {
     Throttle = 0
@@ -14,17 +17,21 @@ input.onGesture(Gesture.Shake, function () {
     Arm = 0
 })
 input.onButtonPressed(Button.AB, function () {
-    if (Arm) {
-        Arm = 0
-    } else {
+    if (Arm == 0) {
         Arm = 1
+    } else {
+        Arm = 0
     }
+    Throttle = 0
 })
 input.onButtonPressed(Button.B, function () {
     if (Throttle < 40) {
-        Throttle += -5
+        Throttle += 5
     } else {
-        Throttle += -1
+        Throttle += 1
+    }
+    if (Throttle > 100) {
+        Throttle = 100
     }
 })
 let Yaw = 0
