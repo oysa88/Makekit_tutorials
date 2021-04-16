@@ -191,7 +191,7 @@ basic.forever(function () {
 
 ### Roll/Pitch
 
-Med fjernkontrollen skal vi få dronen til å bevege seg fremover eller bakover (pitch), og mot høyre eller mot venstre (roll). For å gjøre dette skal vi bruke ``||input: helningsvinkel||`` til micro:bit.
+Med fjernkontrollen skal vi få dronen til å bevege seg forover eller bakover (pitch), og mot høyre eller mot venstre (roll). For å gjøre dette skal vi bruke ``||input: helningsvinkel||`` til micro:bit.
 
 ![Drone-Pitch-Roll-500px.jpg](https://i.postimg.cc/BZc6CM1J/Drone-Pitch-Roll-500px.jpg)
 
@@ -204,9 +204,9 @@ Lag variablene: ``||variabel: Roll||`` og ``||variabel: Pitch||``.
 
 Settes inn i ``||basic: gjenta for alltid||``:
 
-- Sett ``||variabel: Roll||`` til å lese verdien fra ``||input: helningsvinkel: venstre/høyre||``.
+- Sett ``||variabel: Roll||`` til å lese verdien fra ``||input: helningsvinkel: høyre-venstre||``.
 
-- Sett ``||variabel: Pitch||`` til å lese verdien fra ``||input: helningsvinkel: tonehøyde||``.
+- Sett ``||variabel: Pitch||`` til å lese verdien fra ``||input: helningsvinkel: forover-bakover||``.
 
 ```blocks
 basic.forever(function () {
