@@ -308,7 +308,7 @@ set.radioGroup(Radiogruppe)
 basic.showNumber(Radiogruppe)
 ```
 
-## Steg 12
+## Steg 12 @fullscreen
 
 ### Sende radio-melding (PARTY) til dronen
 

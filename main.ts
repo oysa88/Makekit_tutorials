@@ -4,6 +4,9 @@ input.onButtonPressed(Button.A, function () {
     } else {
         Throttle += -1
     }
+    if (Throttle < 0) {
+        Throttle = 0
+    }
 })
 input.onGesture(Gesture.ScreenDown, function () {
     Throttle = 0
@@ -14,17 +17,21 @@ input.onGesture(Gesture.Shake, function () {
     Arm = 0
 })
 input.onButtonPressed(Button.AB, function () {
-    if (Arm) {
-        Arm = 0
-    } else {
+    if (Arm == 0) {
         Arm = 1
+    } else {
+        Arm = 0
     }
+    Throttle = 0
 })
 input.onButtonPressed(Button.B, function () {
     if (Throttle < 40) {
-        Throttle += -5
+        Throttle += 5
     } else {
-        Throttle += -1
+        Throttle += 1
+    }
+    if (Throttle > 100) {
+        Throttle = 100
     }
 })
 let Yaw = 0
@@ -32,9 +39,9 @@ let Pitch = 0
 let Roll = 0
 let Arm = 0
 let Throttle = 0
-let radioGroup = 1
-radio.setGroup(radioGroup)
-basic.showNumber(radioGroup)
+let Radiogruppe = 1
+radio.setGroup(Radiogruppe)
+basic.showNumber(Radiogruppe)
 pins.analogWritePin(AnalogPin.P1, 1023)
 basic.forever(function () {
     Roll = input.rotation(Rotation.Roll)
