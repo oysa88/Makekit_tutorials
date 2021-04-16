@@ -656,3 +656,29 @@ Slik skal hele koden din se ut når du er ferdig!
  
 
 ![Full-kode-Airbit.png](https://i.postimg.cc/L5JLr8L1/Full-kode-Airbit.png)
+
+#### Ekstrablokker
+
+```blocks
+function Yaw () {
+	
+} 
+for (let index = 0; index < 0 % Math.map(0, 0, 1023, 0, 4); index++) {
+	
+}
+while (true && false) {
+	
+}
+Yaw()
+basic.showNumber(pins.map(
+0,
+0,
+1023,
+0,
+4
+))
+radio.setTransmitPower(7)
+led.toggle(0, 0)
+led.unplot(0, 0)
+led.plotBrightness(0, 0, 255)
+```
