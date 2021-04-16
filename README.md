@@ -1,5 +1,5 @@
 
-> Åpne denne siden på [https://oysa88.github.io/test-bitbot-mottaker/](https://oysa88.github.io/test-bitbot-mottaker/)
+> Åpne denne siden på [https://github.com/oysa88/Makekit_tutorials/](https://github.com/oysa88/Makekit_tutorials/)
 
 ## Use as Extension
 
@@ -8,7 +8,7 @@ This repository can be added as an **extension** in MakeCode.
 * åpne [https://makecode.microbit.org/](https://makecode.microbit.org/)
 * klikk på **Nytt prosjekt**
 * klikk på **Utvidelser** i menyen under tannhjulet
-* søk etter **https://github.com/oysa88/test-bitbot-mottaker** og importér
+* søk etter **https://github.com/oysa88/Makekit_tutorials** og importér
 
 ## Rediger dette prosjektet ![Bygg statusmerke](https://github.com/oysa88/test-bitbot-mottaker/workflows/MakeCode/badge.svg)
 
@@ -16,7 +16,7 @@ To edit this repository in MakeCode.
 
 * åpne [https://makecode.microbit.org/](https://makecode.microbit.org/)
 * klikk på **Importer** og så på **Importér URL**
-* lim inn **https://github.com/oysa88/test-bitbot-mottaker** og klikk på importér
+* lim inn **https://github.com/oysa88/Makekit_tutorials** og klikk på importér
 
 ## Forhåndsvisning av blokker
 
