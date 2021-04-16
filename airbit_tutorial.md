@@ -682,3 +682,5 @@ led.toggle(0, 0)
 led.unplot(0, 0)
 led.plotBrightness(0, 0, 255)
 ```
+
+<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
