@@ -10,7 +10,7 @@ This repository can be added as an **extension** in MakeCode.
 * klikk på **Utvidelser** i menyen under tannhjulet
 * søk etter **https://github.com/oysa88/Makekit_tutorials** og importér
 
-## Rediger dette prosjektet ![Bygg statusmerke](https://github.com/oysa88/test-bitbot-mottaker/workflows/MakeCode/badge.svg)
+## Rediger dette prosjektet ![Bygg statusmerke](https://github.com/oysa88/Makekit_tutorials/workflows/MakeCode/badge.svg)
 
 To edit this repository in MakeCode.
 
@@ -23,7 +23,7 @@ To edit this repository in MakeCode.
 This image shows the blocks code from the last commit in master.
 This image may take a few minutes to refresh.
 
-![En opptegnet visning av blokkene](https://github.com/oysa88/test-bitbot-mottaker/raw/master/.github/makecode/blocks.png)
+![En opptegnet visning av blokkene](https://github.com/oysa88/Makekit_tutorials/raw/master/.github/makecode/blocks.png)
 
 #### Metadata (brukes for søk, visualisering)
 
