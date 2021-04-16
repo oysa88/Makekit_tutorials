@@ -47,9 +47,9 @@ Lag variabelen ``||variabel: Throttle||``.
 
 Bruk ``||input: knapp A||`` og ``||input: knapp B||`` til å endre ``||variabel: Throttle||``.
 
-- For ``||input: når knapp A trykkes||``: Hvis ``||variabel: Throttle||`` er mindre enn 40, minske ``||variabel: Throttle||`` med -5, ellers minske ``||variabel: Throttle||`` med -1.
+- For ``||input: når knapp A trykkes||``: Hvis ``||variabel: Throttle||`` er mindre enn 40, endre ``||variabel: Throttle||`` med -5, ellers endre ``||variabel: Throttle||`` med -1.
 
-- For ``||input: når knapp B trykkes||``: Hvis ``||variabel: Throttle||`` er mindre enn 40, øke ``||variabel: Throttle||`` med +5, ellers øke ``||variabel: Throttle||`` med +1.
+- For ``||input: når knapp B trykkes||``: Hvis ``||variabel: Throttle||`` er mindre enn 40, endre ``||variabel: Throttle||`` med +5, ellers endre ``||variabel: Throttle||`` med +1.
 
 ```blocks
 let Throttle = 0
@@ -315,7 +315,7 @@ Vi skal lage en sikkerhetssperre som gjør at vi kan skru dronen av og på med f
 
 ### Arm
 
-Lag variabelen ``||variabel: Arm||``. Variabelen ``||variabel: Arm||`` skal veksle mellom 0 og 1 hver gang ``||input: knapp A+B||`` trykkes inn.
+Lag variabelen ``||variabel: Arm||``. Variabelen ``||variabel: Arm||`` skal veksle mellom 0 og 1 hver gang ``||input: knapp A+B trykkes||`` inn.
 
 Hvis ``||variabel: Arm||`` = 0, skal ``||variabel: Arm||`` settes til 1 når ``||input: knapp A+B||`` trykkes inn. Ellers skal den settes til 0.
 
@@ -338,14 +338,14 @@ input.onButtonPressed(Button.AB, function () {
 
 Om vi mister kontroll over dronen, glemmer vi fort å trykke ``||input: A+B||`` for å skru av dronen. Da er det enklere om vi kan riste på fjernkontrollen.
 
-Bruk ``||input: når ristes||`` for å sette ``||variabel: Arm||`` og ``||variabel: Throttle||`` til 0. 
+Bruk ``||input: når ristes||`` for å sette ``||variabel: Throttle||`` og ``||variabel: Arm||`` til 0. 
 
 (Lag gjerne en lik funksjon til som gjør at du kan skru av dronen hvis fjernkontrollen snus rundt så skjermen på micro:bit er opp ned.)
 
 ```blocks
 input.onGesture(Gesture.Shake, function () {
-    Arm = 0
     Throttle = 0
+    Arm = 0
 })
 input.onGesture(Gesture.ScreenDown, function () {
     Throttle = 0
@@ -431,8 +431,8 @@ input.onButtonPressed(Button.AB, function () {
     Throttle = 0
 })
 input.onGesture(Gesture.Shake, function () {
-    Arm = 0
     Throttle = 0
+    Arm = 0
 })
 input.onGesture(Gesture.ScreenDown, function () {
     Throttle = 0
@@ -466,7 +466,7 @@ Vi ønsker å få dronen til rotere sidelengs, slik at fronten kan peke i en ann
 
 Vi ønsker å få dronen til rotere sidelengs, slik at fronten kan peke i en annen retning. Dette gjør vi å lage en variabel kalt ``||variabel: Yaw||``.
 
-Vi har ikke flere knapper på micro:biten, så vi må finne en måte å løse dette på. Heldigvis har vi noen gullkantede pins nederst på micro:biten. 
+Vi har ikke flere knapper på micro:biten, så vi må finne en måte å løse dette på. Heldigvis har vi noen gullkantede kontaktpunkter nederst på micro:biten. 
 
 Ved å sette strøm på ``||pins: P1||``, kan vi ved å legge en finger mellom ``||pins: P0||`` og ``||pins: P1||``, sende strøm til ``||pins: P0||`` (Hint: Huden vår leder strøm). Samme kan vi gjøre med ``||pins: P2||`` også.
 
@@ -581,8 +581,8 @@ input.onButtonPressed(Button.AB, function () {
     Throttle = 0
 })
 input.onGesture(Gesture.Shake, function () {
-    Arm = 0
     Throttle = 0
+    Arm = 0
 })
 input.onGesture(Gesture.ScreenDown, function () {
     Throttle = 0
