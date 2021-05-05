@@ -1,5 +1,6 @@
 # Air:bit - Tutorial
 
+### diffs true
 
 ## Steg 1 @unplugged
 
@@ -7,28 +8,31 @@
 
 Fjernkontrollen vi skal programmere skal sende forskjellige radiosignaler til dronen. Nå skal vi sette opp dette.
 
-![Radiokommunikasjon.jpg](https://i.postimg.cc/v8zxL4h1/Radiokommunikasjon.jpg)
+![Airbit-radiokommunikasjon.gif](https://i.postimg.cc/bwLD0NTb/Airbit-radiokommunikasjon.gif)
 
 
 ## Steg 1.1
 
 ### Sette opp radio-kommunikasjon
 
-Det første vi skal gjøre er å lage en variabel: ``||variabel: Radiogruppe||``.
+Under ``||variabel: Variabler||``, velg "Lag en variabel" som du kaller ``||variabel: Radiogruppe||``. 
 
-Under ``||basic: ved start||``:
+Inni blokken ``||basic: ved start||``:
 
 - Sett ``||variabel: Radiogruppe||`` til gruppenummeret du har fått utdelt. (F.eks: 1). 
 
 - Sett ``||radio: radio sett gruppe||`` til å være variabelen ``||variabel: Radiogruppe||``.
 
-- ``||basic: Vis tall||`` til å være ``||variabel: Radiogruppe||``. (Fint å se hvilken radiogruppe som fjernkontrollen vår bruker.) 
+- Sett ``||basic: vis tall||`` til å være ``||variabel: Radiogruppe||``. (Fint å se hvilken radiogruppe som fjernkontrollen vår bruker.) 
+
+``||math: Last ned||`` koden din til micro:biten på fjernkontrollen. Sjekk at ``||radio: radiogruppe||`` vises på skjermen ved oppstart.
 
 ```blocks
 let Radiogruppe = 1
 radio.setGroup(Radiogruppe)
 basic.showNumber(Radiogruppe)
 ```
+
 
 ## Steg 2 Throttle @unplugged
 
@@ -47,24 +51,36 @@ Lag variabelen ``||variabel: Throttle||``.
 
 Bruk ``||input: knapp A||`` og ``||input: knapp B||`` til å endre ``||variabel: Throttle||``.
 
-- For ``||input: når knapp A trykkes||``: Hvis ``||variabel: Throttle||`` er mindre enn 40, endre ``||variabel: Throttle||`` med -5, ellers endre ``||variabel: Throttle||`` med -1.
+- ``||input: Når knapp A trykkes||``: Endre ``||variabel: Throttle||`` med -5.
 
-- For ``||input: når knapp B trykkes||``: Hvis ``||variabel: Throttle||`` er mindre enn 40, endre ``||variabel: Throttle||`` med +5, ellers endre ``||variabel: Throttle||`` med +1.
+- ``||input: Når knapp B trykkes||``: Endre ``||variabel: Throttle||`` med +5.
+
+(Ekstraoppgave: Dette vil gjøre kontrolleringen av dronen mye mer nøyaktig! Få ``||variabel: Throttle||`` til å endre seg med +-1 hvis ``||variabel: Throttle||`` er større enn (>) 40.)
 
 ```blocks
 let Throttle = 0
 input.onButtonPressed(Button.A, function () {
+    Throttle += -5
+})
+input.onButtonPressed(Button.B, function () {
+    Throttle += 5
+})
+```
+Ekstraoppgave:
+```blocks
+let Throttle = 0
+input.onButtonPressed(Button.A, function () {
     if (Throttle < 40) {
-        Throttle += -5
-    } else {
         Throttle += -1
+    } else {
+        Throttle += -5
     }
 })
 input.onButtonPressed(Button.B, function () {
     if (Throttle < 40) {
-        Throttle += 5
-    } else {
         Throttle += 1
+    } else {
+        Throttle += 5
     }
 })
 ```
@@ -79,39 +95,54 @@ Vi ønsker ikke at ``||variabel: Throttle||`` skal få ha en verdi mindre enn 0 
 
 - Under ``||input: knapp B||``: Hvis ``||variabel: Throttle||`` er større enn (>) 100, skal ``||variabel: Throttle||`` settes lik 100.
 
+
 ```blocks
 input.onButtonPressed(Button.A, function () {
-    if (Throttle < 40) {
-        Throttle += -5
-    } else {
-        Throttle += -1
-    }
+    Throttle += -5
     if (Throttle < 0) {
         Throttle = 0
     }
 })
 input.onButtonPressed(Button.B, function () {
-    if (Throttle < 40) {
-        Throttle += 5
-    } else {
-        Throttle += 1
-    }
+    Throttle += 5
     if (Throttle > 100) {
         Throttle = 100
     }
 })
 ```
 
-## Steg 2.3 @unplugged
+## Steg 2.3
+
+### Teste Throttle
+
+Vi skal sjekke at ``||variabel: Throttle||`` endres riktig når du trykker på knappene ``||input: A||`` og ``||input: B||``.
+
+Inne i en ``||basic: gjenta for alltid||``: Sett ``||basic: vis tall||`` til å vise ``||variabel: Throttle||``.
+
+``||math: Last ned||`` koden din til micro:biten på fjernkontrollen. Sjekk at verdien til ``||variabel: Throttle||`` kan endres med knapp ``||input: A||`` og ``||input: B||``.
+
+(Hvis alt funker: Slett ``||basic: vis tall||`` til å vise ``||variabel: Throttle||`` fra ``||basic: gjenta for alltid||``.)
+
+
+```blocks
+basic.forever(function () {
+    basic.showNumber(Throttle)
+})
+```
+
+
+## Steg 2.4 @unplugged
 
 ### Visualisere Throttle
 
-Vi skal visualisere ``||variabel: Throttle||`` oppover langs venstre side på skjermen til micro:biten. (Det blå området på bildet.)
+Vi skal nå visualisere ``||variabel: Throttle||`` på skjermen til micro:biten. 
+
+Fordi vi skal vise flere ting på skjermen vår samtidig, kan vi ikke vise talletverdien til ``||variabel: Throttle||``. Vi skal vise det som en søyle oppover langs venstre side på skjermen vår. (Det blå området på bildet.)
 
 ![Visualisere-Throttle-500px.jpg](https://i.postimg.cc/kXZJC0Q7/Visualisere-Throttle-500px.jpg)
 
 
-## Steg 2.4
+## Steg 2.5
 
 ### Visualisere Throttle
 
@@ -141,7 +172,7 @@ basic.forever(function () {
 ![Visualisere-Throttle-500px.jpg](https://i.postimg.cc/kXZJC0Q7/Visualisere-Throttle-500px.jpg)
 
 
-## Steg 2.5 @unplugged
+## Steg 2.6 @unplugged
 
 ### Teste visualieringen av Throttle 
 
