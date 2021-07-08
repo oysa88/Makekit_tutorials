@@ -55,7 +55,7 @@ Bruk ``||input: knapp A||`` og ``||input: knapp B||`` til å endre ``||variabel:
 
 - ``||input: Når knapp B trykkes||``: Endre ``||variabel: Throttle||`` med +5.
 
-(Ekstraoppgave: Dette vil gjøre kontrolleringen av dronen mye mer nøyaktig! Få ``||variabel: Throttle||`` til å endre seg med +-1 hvis ``||variabel: Throttle||`` er større enn (>) 40.)
+(Ekstraoppgave: Dette vil gjøre kontrolleringen av dronen mye mer nøyaktig! Få ``||variabel: Throttle||`` til å endre seg med +-1 når ``||variabel: Throttle||`` er større enn (>) 40.)
 
 ```blocks
 let Throttle = 0
@@ -92,9 +92,7 @@ input.onButtonPressed(Button.B, function () {
 Vi ønsker ikke at ``||variabel: Throttle||`` skal få ha en verdi mindre enn 0 eller større enn 100. Derfor må vi legge til en ``||logic: hvis-betingelse||`` som hindrer dette i å skje.
 
 - Under ``||input: knapp A||``: Hvis ``||variabel: Throttle||`` er mindre enn (<) 0, skal ``||variabel: Throttle||`` settes lik 0.
-
 - Under ``||input: knapp B||``: Hvis ``||variabel: Throttle||`` er større enn (>) 100, skal ``||variabel: Throttle||`` settes lik 100.
-
 
 ```blocks
 input.onButtonPressed(Button.A, function () {
@@ -137,7 +135,7 @@ basic.forever(function () {
 
 Vi skal nå visualisere ``||variabel: Throttle||`` på skjermen til micro:biten. 
 
-Fordi vi skal vise flere ting på skjermen vår samtidig, kan vi ikke vise talletverdien til ``||variabel: Throttle||``. Vi skal vise det som en søyle oppover langs venstre side på skjermen vår. (Det blå området på bildet.)
+Fordi at vi skal kunne vise flere ting på skjermen vår samtidig, kan vi ikke vise talletverdien til ``||variabel: Throttle||``. Vi skal vise det som en søyle oppover langs venstre side på skjermen vår. (Det blå området på bildet.)
 
 ![Visualisere-Throttle-500px.jpg](https://i.postimg.cc/kXZJC0Q7/Visualisere-Throttle-500px.jpg)
 
@@ -263,7 +261,7 @@ Vi skal vise ``||variabel: Roll||`` og ``||variabel: Pitch||`` i det røde områ
 
 Vinkelen til ``||variabel: Roll||`` og ``||variabel: Pitch||`` ligger mellom -45 grader og 45 grader. For å vise dette på skjermen vår, må vi regne om vinklene til koordinatene på skjermen som er mellom 0 og 4. 
 
-Regnestykket vi må lage kan deles opp i to operasjoner. Svaret skal settes inn en ``||led: tenn (x, y)||``.
+Regnestykket vi må lage kan deles opp i to operasjoner. Svaret skal settes inn i en ``||led: tenn (x, y)||``.
 
 - Lag et regnestykke: Hvis du setter inn helningsvinkelen i tabellen under, skal svaret bli verdien i mellomregningen under. (Hvis ``||input: helningsvinkel||`` er -45 grader, skal svaret bli 0, hvis ``||input: helningsvinkel||`` er 0 grader, skal svaret bli 45, og hvis ``||input: helningsvinkel||`` er 45 grader, skal svaret bli 90.)
  
