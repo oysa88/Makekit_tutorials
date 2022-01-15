@@ -172,21 +172,13 @@ let Radiogruppe = 1
 radio.setGroup(Radiogruppe)
 basic.showNumber(Radiogruppe)
 input.onButtonPressed(Button.A, function () {
-    if (Throttle < 40) {
-        Throttle += -5
-    } else {
-        Throttle += -1
-    }
+    Throttle += -10
     if (Throttle < 0) {
         Throttle = 0
     }
 })
 input.onButtonPressed(Button.B, function () {
-    if (Throttle < 40) {
-        Throttle += 5
-    } else {
-        Throttle += 1
-    }
+    Throttle += 10
     if (Throttle > 100) {
         Throttle = 100
     }
